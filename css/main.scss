@@ -1,0 +1,1079 @@
+// Variables
+$main-color: #2a4c90;
+$div-color: #1a3770;
+$second-color:#303f62;
+$border-color: #eb9500;
+$text-color: #d6d6d6;
+$button-color: #fea915;
+
+// Mixins
+@mixin comProp ($name, $value) {
+    -moz-#{$name}: $value;
+    -webkit-#{$name}: $value;
+    -o-#{$name}: $value;
+    #{$name}: $value;
+}
+
+
+/***** Start Overriding Bootstrap Components *****/
+.btn {
+    @extend %transition;
+}
+
+.btn:focus {
+    box-shadow: none;
+}
+/***** EndOverriding Bootstrap Components *****/
+
+/*  Start Global Rules*/
+hr {
+    width: 10%;
+    background-color: $border-color;
+}
+
+body {
+    overflow-x: hidden;
+}
+/* End Global Rules */
+
+/* Start Header */
+.header {
+    height: calc(100vh + 220px);
+    background: url(../images/cover-header.jpg);
+    background-size: cover;
+    .overly {
+        height: 100%;
+        background-color: #1a356edd;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        position: relative;
+        .navbar {
+            .navbar-brand,
+            .navbar-brand:hover {
+                color: #FFF;
+                padding-left: 20px;
+            }
+            .navbar-toggler {
+                width: 45px;
+                padding-right: 0;
+                border: none;
+                z-index: 2;
+                .toggler-icon {
+                    background-color: #FFF;
+                    display: block;
+                    padding: 2px;
+                    margin-bottom: 5px
+                }
+            }
+            .navbar-collapse {
+                .nav-item {
+                    font-weight: bold;
+                    @extend %transition;
+                    &:not(last-of-child) {
+                        margin-right: 18px;
+                    }
+                    .nav-link {
+                        color: $text-color;
+                        @extend %transition;
+                        &:hover {
+                            color: #FFF;
+                        }
+                    }
+                }
+                .active {
+                    .nav-link {
+                        color: #FFF;
+                    }
+                }
+            }
+        }
+        .desc {
+            width: 50%;
+            color: #FFF;
+            transform: translate(0%, -50%);
+            position: absolute;
+            top: 50%;
+            left: 25%;
+            h1 {
+                font-size: 70px;
+                margin: auto;
+            }
+            p {
+                width: max-content;
+                font-size: 38px;
+                position: relative;
+                margin: auto;
+                margin-bottom: 50px;
+                span {
+                    font-size: 60px;
+                    display: inline-block;
+                    transform: translateY(-7px);
+                }
+                &::before,
+                &::after {
+                    content: "____";
+                    position: absolute;
+                    top: 5%;
+                    color: $border-color;
+                }
+                &::before {
+                    left: -25%;
+                }
+                &::after {
+                    right: -25%;
+                }
+            }
+            .the-btn {
+                padding: 20px 60px;
+            }
+        }
+    }
+}
+/* End Header */
+
+/* Start Services */
+.services {
+    margin-top: -90px;
+    .content {
+        width: 95%;
+        margin: auto;
+        .service {
+            margin-bottom: 20px;
+            padding: 30px;
+            background-color: #FFF;
+            border-radius: 15px;
+            box-shadow: 0px 0px 20px #0003;
+            @extend %transition;
+            span {
+                margin-right: 15px;
+            }
+            h3 {
+                font-size: large;
+                margin-bottom: 15px;
+            }
+            p {
+                color: #555;
+                font-size: small;
+                padding-left: 40px;
+            }
+            &.active,
+            &:hover {
+                background-color: $main-color;
+                box-shadow: 0px 0px 20px #{$main-color}aa;
+                h3 {
+                    color: #FFF;
+                }
+                p {
+                    color: #ddd;
+                }
+            }
+        }
+    }
+}
+/* End Services */
+
+/* Start Welcome */
+.welcome {
+    margin-bottom: 100px;
+    .content {
+        height: max-content;
+        .image {
+            width: 80%;
+            height: 535px;
+            img {
+                width: 100%;
+                height: 100%;;
+                border-radius: 15px;
+            }
+        }
+        .message {
+            padding-top: 50px;
+            h2 {
+                margin-bottom: 20px;
+            }
+            p {
+                line-height: 1.5;
+            }
+        }
+    }
+}
+/* End Welcome */
+
+/* Start Practice Area */
+.practice-area {
+    .content {
+        border-bottom: 1px solid #ddd;
+        &:last-of-type {
+            border: none;
+            margin-bottom: 60px;
+        }
+        .item {
+            padding: 40px;
+            border-right: 1px solid #ddd;
+            @extend %transition;
+            &:last-of-type {
+                border: none;
+            }
+            span {
+                visibility: hidden;
+            }
+
+            a {
+                display: block;
+                color: #000;
+                margin-top: 10px;
+                margin-bottom: 5px;
+            }
+
+            &.active,
+            &:hover {
+                background-color: $main-color;
+                color: #FFF;
+                border: none;
+                border-radius: 15px;
+                box-shadow: 0px 0px 20px #{$main-color}aa;
+                transform: scale(1.05);
+                a {
+                    color: #FFF;
+                }
+                span {
+                    visibility: visible;
+                }
+            }
+        }
+    }
+}
+/* End Practice Area */
+
+/* Start Processes */
+.processes {
+    overflow: hidden;
+    .head-font {
+        margin-bottom: 50px;
+    }
+    .head-font + p {
+        font-size: 27px;
+        font-weight: 550;
+        margin-bottom: 75px;
+    }
+
+    .btn {
+        color: #FFF;
+        opacity: 0.4;
+        margin: 0px 15px;
+        &.active {
+            opacity: 1;
+        }
+    }
+    .processes-list {
+        width: 100%;
+        white-space: nowrap;
+        margin-top: 50px;
+        padding: 15px 0;
+        position: relative;
+        overflow: hidden;
+        scroll-behavior: smooth;
+        hr {
+            padding: 0;
+            background: unset;
+            border: 3px dotted #FFF;
+            width: 100%;
+            border-bottom: none;
+            position: absolute;
+            top: 40%;
+        }
+        .process {
+            width: 190px;
+            background-color: #303f62;
+            color: #FFF;
+            margin: auto 6px;
+            padding: 40px 40px 20px 40px;
+            border-radius: 15px;
+            position: relative;
+            display: inline-block;
+            @extend %transition;
+            &:first-of-type::before
+             {
+                content: none;
+            }
+            &.active,
+            &:hover {
+                background-color: #FFF;
+                color: $second-color;
+                box-shadow: 0px 0px 5px #fff;
+                transform: scale(1, 1.05);
+            }
+            p {
+                font-weight: 700;
+                margin-top: 20px;
+                white-space: normal
+            }
+        }
+    }
+}
+/* End Processes */
+
+/* Start Testimonials */
+.testimonials {
+    .carousel {
+        .carousel-inner {
+            overflow: visible;
+            .carousel-item {
+                opacity: 0;
+                @extend %transition;
+                &.active {
+                    opacity: 1;
+                }
+                .image {
+                    width: 100%;
+                    margin: auto;
+                    margin-bottom: 50px;
+                    position: relative;
+                    img {
+                        width: 100%;
+                        &:last-of-type {
+                            width: 50%;
+                            position: absolute;
+                            z-index: 1;
+                            right: -8%;
+                            bottom: -12%;            
+                        }
+                    }
+                }
+                .carousel-caption {
+                    position: static;
+                    color: #000;
+                    font-weight: 600;
+                    text-align: left;
+                    padding: 0;
+                    span {
+                        display: block;
+                        width: max-content;
+                        color: #ddd;
+                        font-weight: 900;
+                        font-family: sans-serif;
+                        font-size: 70px;
+                        margin-bottom: -40px;
+                        transform: rotate(180deg);
+                    }
+                    p {
+                        font-size: large;
+                        line-height: 2;
+                    }
+                }
+            }
+        }
+        .carousel-indicators {
+            width: max-content;
+            position: static;
+            margin: auto;
+            .testimonial {
+                text-indent: 0;
+                width: max-content;
+                height: max-content;
+                background-color: unset;
+                text-align: center;
+                margin: 0;
+                opacity: 0.4;
+                -webkit-transition: all .5s ease;
+                -moz-transition: all .5s ease;
+                -o-transition: all .5s ease;
+                transition: all .5s ease;
+                &.active {
+                    opacity: 1;
+                    img {
+                        transform: scale(1, 1) !important;
+                    }
+                    h4,
+                    span {
+                        display: block;
+                    }
+                }
+                &.smallest {
+                    img {
+                        transform: scale(0.5, 0.5);
+                    }
+                }
+                img {
+                    border-radius: 50%;
+                    transform: scale(0.8, 0.8);
+                }
+                h4 {
+                    font-weight: bold;
+                    font-size: large;
+                    display: none;
+                    margin-top: 15px;
+                    margin-bottom: 0;
+                }
+                span {
+                    color: #bbb;
+                    font-size: small;
+                    display: none;
+                }
+            }
+        }
+    }
+    
+}
+/* End Testimonials */
+
+/* Start Contact Us */
+.contact-us {
+    margin-top: 100px;
+    margin-bottom: 100px;
+    .content {
+        display: flex;
+        .text {
+            width: 50%;
+            color: #FFF;
+            .head-font {
+                font-weight: 550;
+                font-size: 41px;
+                word-spacing: 10px;
+                padding-bottom: 20px;
+                padding-top: 20px;
+            }
+            p {
+                width: 50%;
+                margin-bottom: 50px;
+            }
+        }
+        .images {
+            width: 45%;
+            height: 366px;
+            border: 2px dashed #FFF;
+            margin-top: -60px;
+            border-top: 0;
+            position: relative;
+            img {
+                border-radius: 15px;
+                position: absolute;
+                &:first-of-type {                    
+                    top: -50px;
+                    height: 125%;
+                    left: 5%;
+                }
+                &:nth-of-type(2) {                    
+                    top: 4%;
+                    width: 69%;
+                    right: -34%;
+                }
+                &:last-of-type {
+                    bottom: -46%;
+                    right: -35.7%;
+                    width: 71%;
+                    border-top-right-radius: 0;
+                    border-bottom-right-radius: 0;
+                }
+            }
+        }
+    }
+}
+/* End Contact Us */
+
+/* Start Blog */
+.blog {
+    .posts {
+        padding-top: 50px;
+        padding-bottom: 100px;
+        .card {
+            margin-left: 40px;
+            border: none;
+            border-radius: 20px;
+            box-shadow: 0px 0px 15px #ddd;
+            overflow: hidden;
+            float: left;
+
+            &:first-of-type {
+                width: 46%;
+                margin-left: 0;
+                p {
+                    margin-bottom: 10%;
+                }
+            }
+
+            &:nth-of-type(2) {                
+                width: 31%;
+                .card-title {
+                    font-size: 120%;
+                }
+
+                p {
+                    margin-bottom: 18%;
+                }
+
+            }
+
+            &:nth-of-type(3) {
+                margin-bottom: 62px;
+            }
+            &:nth-of-type(3),
+            &:nth-of-type(4) {
+                width: 15%;
+                h6 {
+                    font-size: x-small;
+                }
+                .card-title {
+                    font-size: xx-small;
+                }
+                .card-link {
+                    font-size: xx-small;
+                }
+            }
+
+            .card-link {
+                color: $button-color;
+            }
+        }
+    }
+}
+/* End Blog */
+
+/* Start Consultation */
+.consultation {
+    .head-font {
+        margin-bottom: 20px;
+    }
+    p {
+        margin: auto;
+        &:first-of-type{
+            width: 50%;
+            padding-right: 20px;
+            padding-left: 20px;
+            span {
+                font-weight: bold;
+            }
+        }
+    }
+    .form {
+        width: 60%;
+        background-color: #FFF;
+        color: $text-color;
+        margin: auto;
+        margin-top: 20px;
+        margin-bottom: 50px;
+        border-radius: 20px;
+        overflow: hidden;
+        .field {
+            color: #aaa;
+            font-size: large;
+            padding: 30px 50px 30px 50px;
+            border: 1px solid #ddd;
+            &:last-of-type {
+                border-bottom: none;
+            }
+            input {
+                border: none;
+                outline: none;
+                &::placeholder {
+                    color: #bbb;
+                }
+            }
+        }
+        .the-btn {
+            margin-top: 100px;
+            margin-bottom: 30px;
+            margin-right: 30px;
+        }
+    }
+
+    a {
+        color: #FFF;
+        font-weight: bold;
+        line-break: anywhere;
+    }
+}
+/* End Consultation */
+
+/* Start Attorney Profiles */
+.attorney-profiles {
+    .profile {
+        margin-bottom: 15px;
+        .image-div{
+            padding-left: 4px;
+            padding-right: 4px;
+            margin-bottom: 10px;
+            .image {
+                width: 100%;
+                height: 100%;
+                img {
+                    width: 100%;
+                    border-radius: 15px;
+                }
+            }
+        }
+        .details {
+            h3 {
+                font-size: xx-large;
+            }
+            p {
+                font-size: large;
+            }
+            button {
+                color: $button-color;
+                padding-top: 0px;
+                padding-left: 0;
+            }
+        }
+    }
+}
+/* End Attorney Profiles */
+
+/* Start Footer */
+.footer {
+    .footer-head {
+        color: #FFF;
+        font-size: large;
+        font-weight: 600;
+    }
+    .head-font {
+        font-size: 20px;
+        font-weight: 500;
+        color: #FFF;
+        text-transform: uppercase;
+    }
+    .links-list {
+        .link {
+            font-size: 11px;
+            font-weight: 500;
+            color: #FFF;
+            margin-bottom: 15px;
+            &.social-media {
+                a:not(:last-of-type) {
+                    margin-right: 10px;
+                }
+            }
+            a {
+                color: #FFF;
+                font-family: Arial;
+            }
+        }
+    }
+}
+/* End Footer */
+
+
+/*** Start Media Queries ***/
+
+/* Small Screen */
+@media (max-width: 767px) {
+
+    /* Start Header */
+    .header .overly {
+        .navbar .navbar-brand {
+            font-size: large;
+        }
+        .desc {
+            width: 95%;
+            left: 2.5%;
+            h1 {
+                font-size: xx-large;
+            }
+            p {
+                margin-bottom: 5px;
+                font-size: x-large;
+                &::before,
+                &::after {
+                    content: "__";
+                    top: 30%;
+                }
+                &::before {
+                    left: -14%;
+                }
+                &::after {
+                    right: -14%;
+                }
+            }
+            .the-btn {
+                font-size: small;
+            }
+        }
+    }
+    /* End Header */
+
+    /* Start Practice Area */
+    .practice-area {
+        .content {
+            width: 45%;
+            margin: auto;
+            border: none;
+            .item {
+                margin-bottom: 15px;
+                border: none;
+            }
+        }
+    }
+    /* End Practice Area */
+
+    /* Start Testimonials */
+    .testimonials .carousel .carousel-indicators {
+        width: 100%;
+        .testimonial {
+            h4 {
+                font-size: small;
+            }
+            span {
+                font-size: x-small;
+            }
+        }
+    }
+    /* End Testimonials */
+
+    /* Start Contact Us */
+    .contact-us .content .text {
+        width: 100%;
+        text-align: center;
+        p {
+            width: 100%;
+        }
+    }
+    /* End Contact Us */
+
+    /* Start Blog */
+    .blog .posts .card {
+        width: 100% !important;
+        margin-left: auto;
+        margin-bottom: 50px;
+        clear: both;
+        h6 {
+            font-size: small !important;
+        }
+
+        .card-title {
+            font-size: x-large !important;
+        }
+        p {
+            margin-bottom: 10% !important;
+        }
+        .card-link {
+            font-size: medium !important;
+        }
+    }
+    /* End Blog */
+
+    /* Start Consultation */
+    .consultation {
+        p:first-of-type {
+            width: 95%;
+        }        
+        .form {
+            width: 100%;
+            .field {
+                padding: 20px 40px 20px 40px;
+            }
+        }
+    }
+    /* End Consultation */
+
+    /* Start Footer */
+    .footer {
+        .links-list{
+            margin-bottom: 50px;
+        }
+    }
+    /* End Footer */
+}
+
+/* Medium Screen */
+@media (min-width: 768px) and (max-width: 991px) {
+    /* Start Header */
+    .header {
+        .overly {
+            .navbar {
+                .navbar-brand {
+                    font-size: 26px;
+                    padding-left: 0;
+                }
+                .navbar-collapse {
+                    height: calc(100vh);
+                    width: 100%;
+                    background-color: $div-color;
+                    padding-top: 60px;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    z-index: 1;
+                    .nav-item {
+                        padding: 15px 0 15px 30px;
+                        border-top: 1px solid #FFF5;
+                        margin-right: 0 !important;
+                        &:hover {
+                            background-color: #FFF;
+                            padding-left: 40px;
+                            .nav-link {
+                                color: $div-color;
+                            }
+                        }
+                    }
+                }
+            }
+            .desc {
+                width: 85%;
+                top: 40%;
+                left: 7%;
+                h1 {
+                    font-size: 45px;
+                }
+                p {
+                    font-size: xx-large;
+                    span {
+                        font-size: 50px;
+                    }
+                }
+            }
+        }
+    }
+    /* End Header */
+
+    /* Start Services */
+    .services .content .service h3 span {
+        font-size: x-large;
+    }
+    /* End Services */
+
+    /* Start Blog */
+    .blog .posts .card {
+        width: 45% !important;
+        margin-right: 5%;
+        margin-left: 0;
+        float: left;
+        margin-bottom: 50px;
+        img {
+            height: 150px; 
+        }
+
+        h6 {
+            font-size: small !important;
+        }
+
+        .card-title {
+            font-size: x-large !important;
+        }
+        p {
+            margin-bottom: 10% !important;
+        }
+        .card-link {
+            font-size: medium !important;
+        }
+    }
+    /* End Blog */
+
+    /* Start Attorney Profile */
+    .attorney-profiles .profile .details p {
+        width: 60%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    /* End Attorney Profile */
+
+    /* Start Footer */
+    .footer {
+        .head-font {
+            font-size: medium;
+        }
+        .links-list {
+
+            .link {
+                font-size: 11px;
+                font-weight: 500;
+                color: #FFF;
+                margin-bottom: 15px;
+                &.social-media {
+                    a:not(:last-of-type) {
+                        margin-right: 10px;
+                    }
+                }
+                a {
+                    color: #FFF;
+                    font-family: Arial;
+                }
+            }
+        }
+    }
+    /* End Footer */
+}
+
+/* Less Than Large Screen */
+@media (max-width: 991px) {
+    /* Start Header */
+    .header {
+        .overly {
+            .navbar {
+                .navbar-collapse {
+                    height: calc(100vh);
+                    width: 100%;
+                    background-color: $div-color;
+                    padding-top: 60px;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    z-index: 1;
+                    .nav-item {
+                        padding: 15px 0 15px 30px;
+                        border-top: 1px solid #FFF5;
+                        margin-right: 0 !important;
+                        &:hover {
+                            background-color: #FFF;
+                            padding-left: 40px;
+                            .nav-link {
+                                color: $div-color;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    /* End Header */
+}
+
+/* Medium and Large Screen */
+@media (min-width: 768px) and (max-width: 1199px) {
+    .consultation .form {
+        width: 80%;
+        .field {
+            input {
+                width: 85%;
+            }
+        }
+    }
+}
+
+/* Large Screen */
+@media (min-width: 992px) and (max-width: 1199px) {
+    /* Start BLog */
+    .blog .posts .card {
+        margin-left: 0;
+        margin-bottom: 20px !important;
+        &:first-of-type {
+            width: 100%;
+        }
+        &:nth-of-type(2) {
+            width: 58%;
+            margin-right: 3%;
+        }
+        &:nth-of-type(3),
+        &:nth-of-type(4) {
+            width: 37%;
+            h6 {
+                font-size: x-small;
+            }
+            .card-title {
+                font-size: medium;
+                font-weight: normal;
+            }
+            .card-link {
+                font-size: small;
+            }
+        }
+    }
+    /* End BLog */
+}
+
+/* Large Screen and Up */
+@media (min-width: 992px) {
+    /* Start Testimonials */
+    .testimonials .carousel {
+        .carousel-inner {
+            .carousel-item .carousel-caption {
+                padding: 40px;
+                span {
+                    font-size: 90px;
+                    line-height: 1;
+                }
+            }
+        }
+        
+        .carousel-indicators {
+            position: absolute;
+            padding-top: 0px;
+            left: 15%;
+        }
+    }
+    /* End Testimonials */
+
+    /* Start Attorney Profile */
+    .attorney-profiles .profile {
+        .image-div .image {
+            height: 155px;
+            img {
+                height: 100%;
+            }
+        }
+        .details p {
+            font-size: medium;
+        }
+    }
+    /* End Attorney Profile */
+}
+
+/* X-Large Screen */
+@media (min-width: 1200px) {
+    /* Start Testimonials */
+    .testimonials .carousel {
+        .carousel-inner .carousel-item .carousel-caption p {
+            font-size: x-large;
+        }
+        .carousel-indicators {
+            bottom: 6%;
+            left: 30%;
+            .testimonial {
+                margin: 5px;
+            }
+        }
+    }
+    /* End Testimonials */
+
+    /* Start Attorney Profile */
+    .attorney-profiles .profile .details p {
+        width: 90%;
+    }
+    /* End Attorney Profile */
+}
+/* End Media Queries */
+
+/* My Framework */
+.main-div {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.blue-div {
+    background-color: $div-color;
+    color: #FFF;
+}
+
+hr {
+    color: $border-color;
+    padding: 2px;
+}
+
+.head-font {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+}
+
+hr + .head-font {
+    margin-bottom: 70px;
+}
+
+.the-btn,
+.the-btn:hover,
+.the-btn:focus {
+    background-color: $button-color;
+    color: #FFF;
+    font-weight: 600;
+    padding: 10px 40px;
+
+}
+
+.signature-font {
+    font-family: rage;
+    font-weight: bold;
+    font-size: xxx-large;
+    margin-bottom: 0;
+}
+
+%transition {
+    @include comProp(transition, all .3s ease-in-out)
+}
